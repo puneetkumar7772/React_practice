@@ -1,0 +1,56 @@
+/* 
+.container {
+  border: 1px solid black;
+  margin: 5% 22%;
+}
+
+.add_form {
+  display: flex;
+  gap: 10px;
+}
+h1{
+    color: blue;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.main {
+  display: flex;
+  flex-direction: row;
+  padding: 2%;
+  justify-content: center;
+  align-items: center;
+  gap:7px;
+}
+.add {
+  font-size: 21px;
+  color: #fff;
+  background-color: #444;
+  border-radius:5px;
+
+}
+input{
+    width:32vw;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.content{
+    background-color: red;
+    height:300px;
+    padding: 5%;
+
+}
+
+.data{
+    display: flex;
+    margin: auto;
+}
+@media screen and (max-width: 618px) and (min-width: 300px) {
+  .container {
+    margin: 3% 3%;
+  }
+
+  input{
+    width: auto;
+  }
+} */
