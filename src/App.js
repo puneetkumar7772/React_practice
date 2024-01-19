@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Input from './input/Input';
+import Navbar from './navbar/Navbar';
+import Button from './button/Button';
+import DrawingBoard from './input/Input';
+import ResponsiveGrid from './input/Input';
+import Modal from './modal/modal';
+import Register from './register/Register';
 
 function App() {
+  //const [data,setData]=useState(false)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <DrawingBoard/> */}
+      {/* <Navbar/>
+      <ResponsiveGrid/>
+      <Button/> */} 
+      {/* <Modal/> */}
+      <Register/>
+      
+    <h1>Practice about reuseable component</h1>
+    <div>
+    </div>
     </div>
   );
 }
