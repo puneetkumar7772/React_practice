@@ -1,11 +1,11 @@
 import React from 'react'
 import Products from '../footer/Footer'
 
-const Button = ({clas,data}) => {
+const Button = ({data,value}) => {
 
   return (
     <div>
-   <button style={clas}>jhgj</button>
+   <button onClick={data}>{value}</button>
     </div>
   )
 }

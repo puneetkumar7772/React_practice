@@ -3,10 +3,13 @@ import "./Register.css";
 import axios from "axios";
 import axiosInstance from "../axios/Axios";
 import { MdDelete } from "react-icons/md";
+import Button from "../button/Button";
+import { CircularProgress } from "@mui/material";
 
 const Register = () => {
   const [data, setdata] = useState([]);
-  const [newDeletedData ,setNewDeletedData] = useState("")
+  const [newDeletedData, setNewDeletedData] = useState("");
+  const [loder, setLoder] = useState(true);
   const [formData, setFormData] = useState({
     name: "",
     password: "",
@@ -18,7 +21,8 @@ const Register = () => {
       try {
         const getData = await axiosInstance.get("list_polls");
         setdata(getData.data.data);
-        setNewDeletedData("")
+        setNewDeletedData("");
+        setLoder(false);
         console.log(getData.data.data, "@@@@@@@@@@@@@@@");
       } catch (error) {
         console.log("asdasdas", error);
@@ -40,18 +44,20 @@ const Register = () => {
     setFormData({ name: "", password: "", role: "" });
   };
 
+  const handleConsole = () => {
+    console.log("468456549574ez5xc4wsz5fx4cw8se5zx57cs");
+  };
+
   const deleteData = async (id) => {
     console.log("88888888", id);
     try {
       const deletedData = await axiosInstance.delete(`delete_poll?id=${id}`);
       console.log("!!!!!!!!!", deletedData);
-      setNewDeletedData(deletedData)
+      setNewDeletedData(deletedData);
     } catch (error) {
       console.log("this is delete data error", error);
     }
   };
-
- 
 
   return (
     <div>
@@ -102,33 +108,41 @@ const Register = () => {
           </select>
           <span>Role</span>
         </label>
-        <button className="submit">Submit</button>
+        <Button value={"submit"} data={handleConsole} />
+
+        {/* <button className="submit">Submit</button> */}
       </form>
-      {data &&
-        data.map((e, i) => (
-          <div key={i}>
-            <div
-              style={{
-                display: "flex",
-                margin: "auto",
-                alignItems: "center",
-                gap: "10px",
-                justifyContent: "center",
-              }}
-            >
-              <h1>{e.title}</h1>
-              <MdDelete
-                style={{ fontSize: "25px" }}
-                onClick={()=>deleteData(e._id)}
-              />
-            </div>
-            <div>
-              {e.options.map((e1, i) => (
-                <h2 key={i}>{e1.option}</h2>
-              ))}
-            </div>
-          </div>
-        ))}
+      {loder ? (
+        <CircularProgress />
+      ) : (
+        <>
+          {data &&
+            data.map((e, i) => (
+              <div key={i}>
+                <div
+                  style={{
+                    display: "flex",
+                    margin: "auto",
+                    alignItems: "center",
+                    gap: "10px",
+                    justifyContent: "center",
+                  }}
+                >
+                  <h1>{e.title}</h1>
+                  <MdDelete
+                    style={{ fontSize: "25px" }}
+                    onClick={() => deleteData(e._id)}
+                  />
+                </div>
+                <div>
+                  {e.options.map((e1, i) => (
+                    <h2 key={i}>{e1.option}</h2>
+                  ))}
+                </div>
+              </div>
+            ))}
+        </>
+      )}
     </div>
   );
 };
