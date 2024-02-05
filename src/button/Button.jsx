@@ -5,7 +5,7 @@ const Button = ({data,value}) => {
 
   return (
     <div>
-   <button onClick={data}>{value}</button>
+   <button onClick={value}>click</button>
     </div>
   )
 }
