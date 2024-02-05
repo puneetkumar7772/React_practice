@@ -15,55 +15,59 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Footer from "./footer/Footer";
+import About from "./pages/about/About";
+import Home from "./pages/home/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import FormByFormik from "./pages/formUsingFormik/FormByFormik";
 
 function App() {
-  const [Name, setName] = useState("");
-  const [data, setData] = useState("");
+  // const [Name, setName] = useState("");
+  // const [data, setData] = useState("");
 
-  const [value, setFirstValue] = useState({ first: "", second: "" });
-  const [add, setAdd] = useState("");
+  // const [value, setFirstValue] = useState({ first: "", second: "" });
+  // const [add, setAdd] = useState("");
 
-  const handleSubmit = (e) => {
-    let value = "";
-    for (let i of Name) {
-      value = i + value;
-    }
-    if (Name === value) {
-      setData("this is a palindrome");
-    } else {
-      setData("this is not a palindrome");
-    }
-  };
+  // const handleSubmit = (e) => {
+  //   let value = "";
+  //   for (let i of Name) {
+  //     value = i + value;
+  //   }
+  //   if (Name === value) {
+  //     setData("this is a palindrome");
+  //   } else {
+  //     setData("this is not a palindrome");
+  //   }
+  // };
 
-  const handleChange = (e) => {
-    setFirstValue({ ...value, [e.target.name]: e.target.value });
-  };
-  console.log(value, "dfghkjl;");
+  // const handleChange = (e) => {
+  //   setFirstValue({ ...value, [e.target.name]: e.target.value });
+  // };
+  // console.log(value, "dfghkjl;");
 
-  const handleAdd = () => {
-    console.log("add");
-    const val = parseInt(value.first) + parseInt(value.second);
-    setAdd(val);
-  };
-  console.log(add);
+  // const handleAdd = () => {
+  //   console.log("add");
+  //   const val = parseInt(value.first) + parseInt(value.second);
+  //   setAdd(val);
+  // };
+  // console.log(add);
 
-  const handleSubstract = () => {
-    console.log("subtract");
-    const val = parseInt(value.first) - parseInt(value.second);
-    setAdd(val);
-  };
+  // const handleSubstract = () => {
+  //   console.log("subtract");
+  //   const val = parseInt(value.first) - parseInt(value.second);
+  //   setAdd(val);
+  // };
 
-  const handleMultiply = () => {
-    console.log("multiply");
-    const val = parseInt(value.first) * parseInt(value.second);
-    setAdd(val);
-  };
+  // const handleMultiply = () => {
+  //   console.log("multiply");
+  //   const val = parseInt(value.first) * parseInt(value.second);
+  //   setAdd(val);
+  // };
 
-  const handleDivide = () => {
-    console.log("divide");
-    const val = parseInt(value.first) / parseInt(value.second);
-    setAdd(val);
-  };
+  // const handleDivide = () => {
+  //   console.log("divide");
+  //   const val = parseInt(value.first) / parseInt(value.second);
+  //   setAdd(val);
+  // };
 
   return (
     <div className="App">
@@ -90,7 +94,7 @@ function App() {
 
         </div>
       </div> */}
-      <div>
+      {/* <div>
         <input
           type="text"
           name="Name"
@@ -100,7 +104,7 @@ function App() {
           }}
         />
         <button onClick={handleSubmit}>Submit</button>
-        <p>This is a input field value:-{data}</p>
+        <p>This is a input field value:-{data}</p> */}
 
       {/* 
     <Box sx={{ display: 'flex' }}>
@@ -109,11 +113,9 @@ function App() {
       <Sidebar/>
 
     </Box> */}
-      </div>
 
       {/* <Footer/> */}
-
-      <div style={{marginTop:"8%"}}>
+      {/* <div style={{marginTop:"8%"}}>
         <input
           type="number"
           name="first"
@@ -138,6 +140,16 @@ function App() {
         <button onClick={handleDivide}>divide</button>
       </div>
       <h1 style={{color:"#444",fontWeight:"bold"}}>YOUR TOTAL AMMOUNT :-{add}</h1>
+
+      <Home/>
+      <Button/> */}
+      {/* <BrowserRouter>
+      <Routes>
+          <Route path="" element={<Home />} />
+          <Route path="about" element={<About />} />
+      </Routes>
+    </BrowserRouter> */}
+    <FormByFormik/>
     </div>
   );
 }
